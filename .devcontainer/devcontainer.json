@@ -1,0 +1,26 @@
+{
+	"name": "Forecasting Dev Container",
+	"context": "..",
+	"dockerFile": "../Dockerfile",
+	"customizations": {
+		"vscode": {
+			"settings": {
+				"python.defaultInterpreterPath": "/usr/bin/python3"
+			},
+			"extensions": [
+				"ms-python.python",
+				"ms-toolsai.jupyter",
+				"ms-python.vscode-pylance",
+				"eamodio.gitlens",
+				"ms-python.black-formatter"
+			]
+		}
+	},
+	"runArgs": [
+		//"--gpus",
+		//"all"
+	],
+	"forwardPorts": [
+		8501
+	]
+}
