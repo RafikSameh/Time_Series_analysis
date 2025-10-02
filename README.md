@@ -123,7 +123,13 @@ See [Model_selection.py](Model_selection.py) for details on model selection and 
 
 ## Contributing
 
-Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
+Contributier:
+Rafik Sameh
+Salma Elhammany
+Nour Fouad
+Etdal Ahmed
+Maria Anwar
+
 
 ---
 
