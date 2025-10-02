@@ -123,16 +123,17 @@ See [Model_selection.py](Model_selection.py) for details on model selection and 
 
 ## Contributing
 
-Contributier:
-Rafik Sameh
+Contributers:
 
-Salma Elhammany
+- Rafik Sameh
 
-Nour Fouad
+- Salma Elhammany
 
-Etdal Ahmed
+- Nour Fouad
 
-Maria Anwar
+- Etdal Ahmed
+
+- Maria Anwar
 
 
 ---
