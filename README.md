@@ -125,9 +125,13 @@ See [Model_selection.py](Model_selection.py) for details on model selection and 
 
 Contributier:
 Rafik Sameh
+
 Salma Elhammany
+
 Nour Fouad
+
 Etdal Ahmed
+
 Maria Anwar
 
 
