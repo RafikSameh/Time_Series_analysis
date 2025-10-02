@@ -1,92 +1,138 @@
 # DS Internship 2025
 
+A forecasting toolkit for time series data, featuring classical and deep learning models including SARIMA, SARIMAX, SARIMA-GARCH, LSTM, and TACTIS-2. The project is designed for experimentation, comparison, and visualization of different forecasting approaches.
 
+---
 
-## Getting started
+## Table of Contents
 
-To make it easy for you to get started with GitLab, here's a list of recommended next steps.
+- [Features](#features)
+- [Project Structure](#project-structure)
+- [Installation](#installation)
+- [Usage](#usage)
+- [Models](#models)
+- [Visualization](#visualization)
+- [Contributing](#contributing)
+- [License](#license)
 
-Already a pro? Just edit this README.md and make it your own. Want to make it easy? [Use the template at the bottom](#editing-this-readme)!
+---
 
-## Add your files
+## Features
 
-- [ ] [Create](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#create-a-file) or [upload](https://docs.gitlab.com/ee/user/project/repository/web_editor.html#upload-a-file) files
-- [ ] [Add files using the command line](https://docs.gitlab.com/ee/gitlab-basics/add-file.html#add-a-file-using-the-command-line) or push an existing Git repository with the following command:
+- **SARIMA/SARIMAX**: Classical time series forecasting with and without exogenous variables.
+- **SARIMA-GARCH**: Combines SARIMA for mean prediction and GARCH for volatility modeling.
+- **LSTM**: Deep learning model for sequential data.
+- **TACTIS-2**: Transformer-based model for advanced forecasting.
+- **Interactive Visualization**: Plotly-based dashboards and Streamlit web interface.
+- **Rolling and Fixed Forecasts**: Supports both rolling window and fixed-horizon predictions.
+
+---
+
+## Project Structure
 
 ```
-cd existing_repo
-git remote add origin http://10.10.77.9/Training/ds-internship-2025.git
-git branch -M main
-git push -uf origin main
+.
+├── Data_Handler.py         # Data preprocessing, aggregation, smoothing, and feature engineering utilities
+├── GARCH_Model.py         # Standalone GARCH model implementation for volatility modeling
+├── SARIMAModel.py         # SARIMA model class for univariate time series forecasting
+├── SARIMAXModel.py        # SARIMAX model class supporting exogenous variables
+├── lstm_data_handler.py   # Data preparation and utilities for LSTM models
+├── model_predictor.py     # LSTM model training, prediction, and rolling forecast logic
+├── Model_selection.py     # Main interface for selecting and running different forecasting models
+├── sarima_garch.py        # Hybrid SARIMA-GARCH model implementation
+├── webpage.py             # Streamlit web app for interactive model selection and visualization
+├── test_many_dfs.ipynb    # Jupyter notebook for testing models on multiple dataframes
+├── README.md              # Project documentation
+└── ... (other files)
 ```
 
-## Integrate with your tools
+- **Data_Handler.py**: Data preprocessing, smoothing, aggregation, and scaling.
+- **GARCH_Model.py**: Implements the GARCH model for volatility forecasting.
+- **SARIMAModel.py**: SARIMA model class for univariate time series forecasting.
+- **SARIMAXModel.py**: SARIMAX model class with support for exogenous variables.
+- **lstm_data_handler.py**: Handles data preparation and transformation for LSTM models.
+- **model_predictor.py**: Contains LSTM model logic, training, and rolling forecast routines.
+- **Model_selection.py**: Main interface to select and run different models (SARIMA, SARIMAX, SARIMA-GARCH, LSTM, TACTIS-2).
+- **sarima_garch.py**: Implements the SARIMA-GARCH hybrid model.
+- **webpage.py**: Streamlit web application for interactive forecasting and visualization.
+- **test_many_dfs.ipynb**: Notebook for testing models on multiple datasets.
+- **README.md**: Project documentation and usage instructions.
 
-- [ ] [Set up project integrations](http://10.10.77.9/Training/ds-internship-2025/-/settings/integrations)
-
-## Collaborate with your team
-
-- [ ] [Invite team members and collaborators](https://docs.gitlab.com/ee/user/project/members/)
-- [ ] [Create a new merge request](https://docs.gitlab.com/ee/user/project/merge_requests/creating_merge_requests.html)
-- [ ] [Automatically close issues from merge requests](https://docs.gitlab.com/ee/user/project/issues/managing_issues.html#closing-issues-automatically)
-- [ ] [Enable merge request approvals](https://docs.gitlab.com/ee/user/project/merge_requests/approvals/)
-- [ ] [Set auto-merge](https://docs.gitlab.com/ee/user/project/merge_requests/merge_when_pipeline_succeeds.html)
-
-## Test and Deploy
-
-Use the built-in continuous integration in GitLab.
-
-- [ ] [Get started with GitLab CI/CD](https://docs.gitlab.com/ee/ci/quick_start/index.html)
-- [ ] [Analyze your code for known vulnerabilities with Static Application Security Testing(SAST)](https://docs.gitlab.com/ee/user/application_security/sast/)
-- [ ] [Deploy to Kubernetes, Amazon EC2, or Amazon ECS using Auto Deploy](https://docs.gitlab.com/ee/topics/autodevops/requirements.html)
-- [ ] [Use pull-based deployments for improved Kubernetes management](https://docs.gitlab.com/ee/user/clusters/agent/)
-- [ ] [Set up protected environments](https://docs.gitlab.com/ee/ci/environments/protected_environments.html)
-
-***
-
-# Editing this README
-
-When you're ready to make this README your own, just edit this file and use the handy template below (or feel free to structure it however you want - this is just a starting point!). Thank you to [makeareadme.com](https://www.makeareadme.com/) for this template.
-
-## Suggestions for a good README
-Every project is different, so consider which of these sections apply to yours. The sections used in the template are suggestions for most open source projects. Also keep in mind that while a README can be too long and detailed, too long is better than too short. If you think your README is too long, consider utilizing another form of documentation rather than cutting out information.
-
-## Name
-Choose a self-explaining name for your project.
-
-## Description
-Let people know what your project can do specifically. Provide context and add a link to any reference visitors might be unfamiliar with. A list of Features or a Background subsection can also be added here. If there are alternatives to your project, this is a good place to list differentiating factors.
-
-## Badges
-On some READMEs, you may see small images that convey metadata, such as whether or not all the tests are passing for the project. You can use Shields to add some to your README. Many services also have instructions for adding a badge.
-
-## Visuals
-Depending on what you are making, it can be a good idea to include screenshots or even a video (you'll frequently see GIFs rather than actual videos). Tools like ttygif can help, but check out Asciinema for a more sophisticated method.
+---
 
 ## Installation
-Within a particular ecosystem, there may be a common way of installing things, such as using Yarn, NuGet, or Homebrew. However, consider the possibility that whoever is reading your README is a novice and would like more guidance. Listing specific steps helps remove ambiguity and gets people to using your project as quickly as possible. If it only runs in a specific context like a particular programming language version or operating system or has dependencies that have to be installed manually, also add a Requirements subsection.
+
+1. Clone the repository:
+    ```sh
+    git clone http://10.10.77.9/Training/ds-internship-2025.git
+    cd ds-internship-2025
+    ```
+
+2. Install dependencies:
+    ```sh
+    pip install -r requirements.txt
+    ```
+
+3. (Optional) For TACTIS-2, ensure `train.py` and required checkpoints are available.
+
+---
 
 ## Usage
-Use examples liberally, and show the expected output if you can. It's helpful to have inline the smallest example of usage that you can demonstrate, while providing links to more sophisticated examples if they are too long to reasonably include in the README.
 
-## Support
-Tell people where they can go to for help. It can be any combination of an issue tracker, a chat room, an email address, etc.
+### Running Models
 
-## Roadmap
-If you have ideas for releases in the future, it is a good idea to list them in the README.
+You can run models via the [Model_selection.py](Model_selection.py) interface or through the [webpage.py](webpage.py) Streamlit app.
+
+#### Example: Run Streamlit App
+
+```sh
+streamlit run webpage.py
+```
+
+#### Example: Run a model in Python
+
+```python
+from Model_selection import Model_Selection
+import pandas as pd
+
+df = pd.read_csv("your_timeseries.csv", index_col=0, parse_dates=True)
+model = Model_Selection(data=df, model="SARIMA-GARCH", forecast_horizon=24)
+print(model.predicted_Values)
+```
+
+---
+
+## Models
+
+- **SARIMA**: Seasonal ARIMA for univariate time series.
+- **SARIMAX**: SARIMA with exogenous variables.
+- **SARIMA-GARCH**: SARIMA for mean, GARCH for volatility.
+- **LSTM**: Deep learning for sequence prediction.
+- **TACTIS-2**: Transformer-based, supports probabilistic forecasting.
+
+See [Model_selection.py](Model_selection.py) for details on model selection and configuration.
+
+---
+
+## Visualization
+
+- Interactive plots are generated using Plotly.
+- The Streamlit app ([webpage.py](webpage.py)) provides dashboards for model selection, forecasting, and evaluation.
+
+---
 
 ## Contributing
-State if you are open to contributions and what your requirements are for accepting them.
 
-For people who want to make changes to your project, it's helpful to have some documentation on how to get started. Perhaps there is a script that they should run or some environment variables that they need to set. Make these steps explicit. These instructions could also be useful to your future self.
+Contributions are welcome! Please open issues or submit pull requests for improvements or bug fixes.
 
-You can also document commands to lint the code or run tests. These steps help to ensure high code quality and reduce the likelihood that the changes inadvertently break something. Having instructions for running tests is especially helpful if it requires external setup, such as starting a Selenium server for testing in a browser.
-
-## Authors and acknowledgment
-Show your appreciation to those who have contributed to the project.
+---
 
 ## License
-For open source projects, say how it is licensed.
 
-## Project status
-If you have run out of energy or time for your project, put a note at the top of the README saying that development has slowed down or stopped completely. Someone may choose to fork your project or volunteer to step in as a maintainer or owner, allowing your project to keep going. You can also make an explicit request for maintainers.
+Specify your license here (e.g., MIT, Apache 2.0).
+
+---
+
+## Project Status
+
+Actively developed for DS Internship 2025.
